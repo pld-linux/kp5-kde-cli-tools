@@ -45,7 +45,7 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} -C build install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%find_lang kde-cli-tools --all-name
+%find_lang kde-cli-tools --all-name --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
