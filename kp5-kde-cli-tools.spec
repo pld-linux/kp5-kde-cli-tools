@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.4.0
+%define		kdeplasmaver	5.5.4
 %define		qtver		5.3.2
 %define		kpname		kde-cli-tools
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
-Version:	5.4.0
+Version:	5.5.4
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	65fc93f60161988783a0c78e12640aa5
+# Source0-md5:	3a56e727477dc28d51c10d5d2eb91dc2
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -17,8 +17,10 @@ BuildRequires:	kf5-kcmutils-devel
 BuildRequires:	kf5-kconfig-devel
 BuildRequires:	kf5-kdelibs4support-devel
 BuildRequires:	kf5-kdesu-devel
+BuildRequires:	kf5-kemoticons-devel
 BuildRequires:	kf5-ki18n-devel
 BuildRequires:	kf5-kiconthemes-devel
+BuildRequires:	kf5-kitemmodels-devel
 BuildRequires:	kf5-kwindowsystem-devel
 BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
