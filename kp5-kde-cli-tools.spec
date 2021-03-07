@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.15.3
+%define		kdeplasmaver	5.21.2
 %define		qtver		5.9.0
 %define		kpname		kde-cli-tools
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
-Version:	5.15.3
+Version:	5.21.2
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	882890f64e5143e67e061f6267feea5f
+# Source0-md5:	9f794f1f0df65a93a68aa0af4258dae8
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -41,12 +41,14 @@ install -d build
 cd build
 %cmake -G Ninja \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+	-DHTML_INSTALL_DIR=%{_kdedocdir} \
 	..
 %ninja_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 %ninja_install -C build
+rm -rf $RPM_BUILD_ROOT%{_kdedocdir}/{sr,sr@latin}
 
 %find_lang kde-cli-tools --all-name --with-kde
 
@@ -71,20 +73,22 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/ktraderclient5
 %attr(755,root,root) %{_libexecdir}/kf5/kdeeject
 %attr(755,root,root) %{_libexecdir}/kf5/kdesu
-%attr(755,root,root) %{_libdir}/libkdeinit5_kcmshell5.so
 %attr(755,root,root) %{_libdir}/qt5/plugins/kcm_filetypes.so
 %{_datadir}/kservices5/filetypes.desktop
 %{_mandir}/man1/kdesu.1*
-%lang(ca) /usr/share/man/ca/man1/kdesu.1*
-%lang(de) /usr/share/man/de/man1/kdesu.1*
-%lang(es) /usr/share/man/es/man1/kdesu.1*
-%lang(et) /usr/share/man/et/man1/kdesu.1*
-%lang(it) /usr/share/man/it/man1/kdesu.1*
-%lang(nb) /usr/share/man/nb/man1/kdesu.1*
-%lang(nl) /usr/share/man/nl/man1/kdesu.1*
-%lang(pt) /usr/share/man/pt/man1/kdesu.1*
-%lang(pt_BR) /usr/share/man/pt_BR/man1/kdesu.1*
-%lang(ru) /usr/share/man/ru/man1/kdesu.1*
-%lang(sr) /usr/share/man/sr/man1/kdesu.1*
-%lang(sv) /usr/share/man/sv/man1/kdesu.1*
-%lang(uk) /usr/share/man/uk/man1/kdesu.1*
+%lang(ca) %{_mandir}/ca/man1/kdesu.1*
+%lang(de) %{_mandir}/de/man1/kdesu.1*
+%lang(es) %{_mandir}/es/man1/kdesu.1*
+%lang(et) %{_mandir}/et/man1/kdesu.1*
+%lang(it) %{_mandir}/it/man1/kdesu.1*
+%lang(nb) %{_mandir}/nb/man1/kdesu.1*
+%lang(nl) %{_mandir}/nl/man1/kdesu.1*
+%lang(pt) %{_mandir}/pt/man1/kdesu.1*
+%lang(pt_BR) %{_mandir}/pt_BR/man1/kdesu.1*
+%lang(ru) %{_mandir}/ru/man1/kdesu.1*
+%lang(sr) %{_mandir}/sr/man1/kdesu.1*
+%lang(sv) %{_mandir}/sv/man1/kdesu.1*
+%lang(uk) %{_mandir}/uk/man1/kdesu.1*
+%{_desktopdir}/org.kde.keditfiletype.desktop
+%attr(755,root,root) %{_bindir}/kde-inhibit
+%lang(fr) %{_mandir}/fr/man1/kdesu.1*
