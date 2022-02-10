@@ -1,14 +1,14 @@
-%define		kdeplasmaver	5.23.5
+%define		kdeplasmaver	5.24.0
 %define		qtver		5.9.0
 %define		kpname		kde-cli-tools
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
-Version:	5.23.5
+Version:	5.24.0
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	baee3538c5b09fa95d74c55f7760c015
+# Source0-md5:	a7157d0f6a12d2da890643b30bb02967
 URL:		https://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
@@ -55,9 +55,6 @@ rm -rf $RPM_BUILD_ROOT%{_kdedocdir}/{sr,sr@latin}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p /sbin/ldconfig
-%postun	-p /sbin/ldconfig
-
 %files -f kde-cli-tools.lang
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kbroadcastnotification
@@ -71,12 +68,18 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kstart5
 %attr(755,root,root) %{_bindir}/ksvgtopng5
 %attr(755,root,root) %{_bindir}/ktraderclient5
+%attr(755,root,root) %{_bindir}/kde-open
+%attr(755,root,root) %{_bindir}/kdecp
+%attr(755,root,root) %{_bindir}/kdemv
+%attr(755,root,root) %{_bindir}/keditfiletype
+%attr(755,root,root) %{_bindir}/kioclient
+%attr(755,root,root) %{_bindir}/kmimetypefinder
+%attr(755,root,root) %{_bindir}/kstart
+%attr(755,root,root) %{_bindir}/ksvgtopng
 %attr(755,root,root) %{_libexecdir}/kf5/kdeeject
 %attr(755,root,root) %{_libexecdir}/kf5/kdesu
-%attr(755,root,root) %{_libdir}/qt5/plugins/kcm_filetypes.so
 %attr(755,root,root) %{_bindir}/plasma-open-settings
 %{_desktopdir}/org.kde.plasma.settings.open.desktop
-%{_datadir}/kservices5/filetypes.desktop
 %{_mandir}/man1/kdesu.1*
 %lang(ca) %{_mandir}/ca/man1/kdesu.1*
 %lang(de) %{_mandir}/de/man1/kdesu.1*
@@ -94,3 +97,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/org.kde.keditfiletype.desktop
 %attr(755,root,root) %{_bindir}/kde-inhibit
 %lang(fr) %{_mandir}/fr/man1/kdesu.1*
+%{_libdir}/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_filetypes.so
+%{_desktopdir}/kcm_filetypes.desktop
