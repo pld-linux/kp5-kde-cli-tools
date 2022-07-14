@@ -7,7 +7,7 @@
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
 Version:	5.25.3
-Release:	1
+Release:	2
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -24,6 +24,7 @@ BuildRequires:	kf5-kemoticons-devel
 BuildRequires:	kf5-ki18n-devel
 BuildRequires:	kf5-kiconthemes-devel
 BuildRequires:	kf5-kitemmodels-devel
+BuildRequires:	kf5-kpty-devel
 BuildRequires:	kf5-kwindowsystem-devel
 BuildRequires:	kp5-plasma-workspace-devel >= %{version}
 BuildRequires:	ninja
