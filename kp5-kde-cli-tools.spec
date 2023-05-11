@@ -7,7 +7,7 @@
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
 Version:	5.27.5
-Release:	2
+Release:	3
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
@@ -72,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/kdecp5
 %attr(755,root,root) %{_bindir}/kdemv5
 %attr(755,root,root) %{_bindir}/keditfiletype5
+%attr(755,root,root) %{_bindir}/kinfo
 %attr(755,root,root) %{_bindir}/kioclient5
 %attr(755,root,root) %{_bindir}/kmimetypefinder5
 %attr(755,root,root) %{_bindir}/kstart5
