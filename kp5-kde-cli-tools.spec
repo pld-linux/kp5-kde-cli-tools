@@ -1,17 +1,17 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeplasmaver	5.27.7
+%define		kdeplasmaver	5.27.8
 %define		qtver		5.15.2
 %define		kpname		kde-cli-tools
 Summary:	Tools based on KDE Frameworks 5 to better interact with the system
 Name:		kp5-%{kpname}
-Version:	5.27.7
+Version:	5.27.8
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/plasma/%{kdeplasmaver}/%{kpname}-%{version}.tar.xz
-# Source0-md5:	3febab89d2fca2e67271d5e35723d7be
+# Source0-md5:	fc88fb77bd69b01b9147d4e5bee34c40
 URL:		https://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.16.0
@@ -109,3 +109,4 @@ rm -rf $RPM_BUILD_ROOT
 %lang(tr) %{_mandir}/tr/man1/kdesu.1*
 %{_libdir}/qt5/plugins/plasma/kcms/systemsettings_qwidgets/kcm_filetypes.so
 %{_desktopdir}/kcm_filetypes.desktop
+%{_datadir}/xdg-desktop-portal/kde-portals.conf
